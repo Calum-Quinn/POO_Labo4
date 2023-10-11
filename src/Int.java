@@ -25,18 +25,21 @@ public class Int {
         return super.toString() + num;
     }
 
+    //Swap two Ints in an array
     public void swapInt(Int[] array, int index1, int index2) {
         Int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 
+    //Swap the values of two Ints
     public static void swapIntVal(Int lhs, Int rhs) {
         int temp = rhs.num;
         rhs.num = lhs.num;
         lhs.num = temp;
     }
 
+    //Swap the values of this Int and another
     public void swap(Int other) {
         swapIntVal(this,other);
     }
