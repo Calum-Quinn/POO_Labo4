@@ -1,3 +1,10 @@
+/*
+
+    A lot of code is duplicated from the Main.java file so that we can have both examples
+    simultaneously instead of simply writing the third exercise over the first one.
+
+*/
+
 public class IntMain {
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -5,11 +12,13 @@ public class IntMain {
             return;
         }
 
+        // So as not to modify args directly
         Int[] argsValues = new Int[args.length];
 
+        // Check each number individually
         for (int i = 0; i < args.length; ++i) {
             String arg = args[i];
-            int j, power = arg.length() - 1;
+            int j, power = arg.length() - 1; // Power is power of 10 for first digit
             boolean isNegative = false;
 
             switch (arg.charAt(0)) {
@@ -24,25 +33,29 @@ public class IntMain {
             }
 
             Int number = new Int();
+            int temp = number.getNum();
+            // Multiply each digit of the current number by the correct power of 10
             for (; j < arg.length(); ++j) {
-                int temp = number.getNum();
-                temp += ((arg.charAt(j) - '0') * Math.pow(10, power));
-                number.setNum(temp);
+                temp += ((arg.charAt(j) - '0') * (int)Math.pow(10, power));
                 --power;
             }
+            // Assign number to Int
+            number.setNum(temp);
 
+            // Apply sign for negative numbers
             if (isNegative) {
                 number.setNum(-number.getNum());
             }
 
+            // Add current number to array
             argsValues[i] = number;
         }
 
+        // Sort and then print array
         printArray(bubbleSort(argsValues));
     }
 
     private static Int[] bubbleSort(Int[] values) {
-        int temp;
         boolean swapped;
 
         for (int i = 0; i < values.length - 1; ++i) {
@@ -60,14 +73,14 @@ public class IntMain {
                 break;
             }
         }
-
         return values;
     }
 
+    // No print function for an array of Int, so implemented here
     private static void printArray(Int[] array) {
         System.out.print("[");
         for (int i = 0; i < array.length; ++i) {
-            System.out.print(array[i].toString());
+            System.out.print(array[i].toString()); // Use of overloaded toString for Int
             if (i != array.length - 1) {
                 System.out.print(", ");
             }

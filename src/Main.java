@@ -7,11 +7,13 @@ public class Main {
             return;
         }
 
+        // So as not to modify args directly
         int[] argsValues = new int[args.length];
 
+        // Check each number individually
         for (int i = 0; i < args.length; ++i) {
             String arg = args[i];
-            int j, power = arg.length() - 1;
+            int j, power = arg.length() - 1; // Power is power of 10 for first digit
             boolean isNegative = false;
 
             switch (arg.charAt(0)) {
@@ -26,18 +28,22 @@ public class Main {
             }
 
             int number = 0;
+            // Multiply each digit of the current number by the correct power of 10
             for (; j < arg.length(); ++j) {
                 number += (int) ((arg.charAt(j) - '0') * Math.pow(10, power));
                 --power;
             }
 
+            // Apply sign to negative numbers
             if (isNegative) {
                 number *= -1;
             }
 
+            // Add current number to array
             argsValues[i] = number;
         }
 
+        // Sort and then print array
         System.out.println(Arrays.toString(bubbleSort(argsValues)));
     }
 
