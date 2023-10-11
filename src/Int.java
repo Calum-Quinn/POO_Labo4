@@ -22,7 +22,8 @@ public class Int {
     }
 
     public String toString() {
-        return super.toString() + num;
+//        return super.toString() + num;
+        return String.valueOf(num);
     }
 
     //Swap two Ints in an array
