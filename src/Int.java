@@ -25,10 +25,10 @@ public class Int {
         return super.toString() + num;
     }
 
-    public void swapInt(Int lhs, Int rhs) {
-        Int temp = rhs;
-        rhs = lhs;
-        lhs = temp;
+    public void swapInt(Int[] array, int index1, int index2) {
+        Int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
     }
 
     public static void swapIntVal(Int lhs, Int rhs) {
