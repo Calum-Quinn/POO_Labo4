@@ -25,9 +25,19 @@ public class Int {
         return super.toString() + num;
     }
 
-    public void swap(Int lhs, Int rhs) {
+    public void swapInt(Int lhs, Int rhs) {
         Int temp = rhs;
         rhs = lhs;
         lhs = temp;
+    }
+
+    public static void swapIntVal(Int lhs, Int rhs) {
+        int temp = rhs.num;
+        rhs.num = lhs.num;
+        lhs.num = temp;
+    }
+
+    public void swap(Int other) {
+        swapIntVal(this,other);
     }
 }
