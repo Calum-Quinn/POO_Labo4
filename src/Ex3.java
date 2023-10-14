@@ -5,6 +5,10 @@
 
 */
 
+/**
+ * @author Calum Quinn
+ * @author Dylan Ramos
+ */
 public class Ex3 {
     public static void main(String[] args) {
         if (args.length == 0) {

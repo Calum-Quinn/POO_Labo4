@@ -1,3 +1,7 @@
+/**
+ * @author Calum Quinn
+ * @author Dylan Ramos
+ */
 public class Int {
     private int num;
 

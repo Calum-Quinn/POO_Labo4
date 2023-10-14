@@ -1,5 +1,9 @@
 import java.util.Arrays;
 
+/**
+ * @author Calum Quinn
+ * @author Dylan Ramos
+ */
 public class Ex1 {
     public static void main(String[] args) {
         if (args.length == 0) {
