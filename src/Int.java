@@ -27,7 +27,7 @@ public class Int {
     }
 
     // Swap two Ints in an array
-    public void swapInt(Int[] array, int index1, int index2) {
+    public static void swapInt(Int[] array, int index1, int index2) {
         Int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
@@ -42,6 +42,6 @@ public class Int {
 
     // Swap the values of current Int and another
     public void swap(Int other) {
-        swapIntVal(this,other);
+        swapIntVal(this, other);
     }
 }

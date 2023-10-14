@@ -33,14 +33,11 @@ public class IntMain {
             }
 
             Int number = new Int();
-            int temp = number.getNum();
             // Multiply each digit of the current number by the correct power of 10
             for (; j < arg.length(); ++j) {
-                temp += ((arg.charAt(j) - '0') * (int)Math.pow(10, power));
+                number.setNum(number.getNum() + ((arg.charAt(j) - '0') * (int) Math.pow(10, power)));
                 --power;
             }
-            // Assign number to Int
-            number.setNum(temp);
 
             // Apply sign for negative numbers
             if (isNegative) {
@@ -64,7 +61,7 @@ public class IntMain {
             for (int j = 0; j < values.length - i - 1; ++j) {
                 if (values[j].getNum() > values[j + 1].getNum()) {
                     // Swap the values
-                    Int.swapIntVal(values[j],values[j+1]);
+                    Int.swapIntVal(values[j], values[j + 1]);
                     swapped = true;
                 }
             }
@@ -73,6 +70,7 @@ public class IntMain {
                 break;
             }
         }
+
         return values;
     }
 
