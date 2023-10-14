@@ -1,11 +1,6 @@
-/*
+import java.util.Arrays;
 
-    A lot of code is duplicated from the Main.java file so that we can have both examples
-    simultaneously instead of simply writing the third exercise over the first one.
-
-*/
-
-public class IntMain {
+public class Ex1 {
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("No arguments provided.");
@@ -13,7 +8,7 @@ public class IntMain {
         }
 
         // So as not to modify args directly
-        Int[] argsValues = new Int[args.length];
+        int[] argsValues = new int[args.length];
 
         // Check each number individually
         for (int i = 0; i < args.length; ++i) {
@@ -32,16 +27,16 @@ public class IntMain {
                     j = 0;
             }
 
-            Int number = new Int();
+            int number = 0;
             // Multiply each digit of the current number by the correct power of 10
             for (; j < arg.length(); ++j) {
-                number.setNum(number.getNum() + ((arg.charAt(j) - '0') * (int) Math.pow(10, power)));
+                number += (int) ((arg.charAt(j) - '0') * Math.pow(10, power));
                 --power;
             }
 
-            // Apply sign for negative numbers
+            // Apply sign to negative numbers
             if (isNegative) {
-                number.setNum(-number.getNum());
+                number *= -1;
             }
 
             // Add current number to array
@@ -49,19 +44,22 @@ public class IntMain {
         }
 
         // Sort and then print array
-        printArray(bubbleSort(argsValues));
+        System.out.println(Arrays.toString(bubbleSort(argsValues)));
     }
 
-    private static Int[] bubbleSort(Int[] values) {
+    private static int[] bubbleSort(int[] values) {
+        int temp;
         boolean swapped;
 
         for (int i = 0; i < values.length - 1; ++i) {
             swapped = false;
             // Loop on the digits that are not yet sorted
             for (int j = 0; j < values.length - i - 1; ++j) {
-                if (values[j].getNum() > values[j + 1].getNum()) {
+                if (values[j] > values[j + 1]) {
                     // Swap the values
-                    Int.swapIntVal(values[j], values[j + 1]);
+                    temp = values[j];
+                    values[j] = values[j + 1];
+                    values[j + 1] = temp;
                     swapped = true;
                 }
             }
@@ -72,17 +70,5 @@ public class IntMain {
         }
 
         return values;
-    }
-
-    // No print function for an array of Int, so implemented here
-    private static void printArray(Int[] array) {
-        System.out.print("[");
-        for (int i = 0; i < array.length; ++i) {
-            System.out.print(array[i].toString()); // Use of overloaded toString for Int
-            if (i != array.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
     }
 }
